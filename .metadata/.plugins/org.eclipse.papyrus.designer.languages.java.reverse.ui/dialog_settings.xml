@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="false" key="/nutch-1xx/models/models.uml:DISPLAY_PACKAGES"/>
+	<item value="0" key="/nutch-1xx/models/models.uml:selectedParserIndex"/>
+	<item value="false" key="/nutch-1xx/models/models.uml:DISPLAY_CU"/>
+	<item value="0" key="/nutch-1xx/models/models.umlnutch-1xx:selectedParserIndex"/>
+	<item value="0" key="/nutch-1xx/models/models.umlJavaAtomic:selectedParserIndex"/>
+	<item value="false" key="/nutch-1xx/models/models.uml:DISPLAY_MODEL"/>
+	<item value="" key="/nutch-1xx/models/models.uml:projectName"/>
+	<item value="nutch-1xx" key="/nutch-1xx/models/models.umlnutch-1xx:projectName"/>
+	<item value="JavaAtomic" key="/nutch-1xx/models/models.umlJavaAtomic:projectName"/>
+	<list key="/nutch-1xx/models/models.umlJavaAtomic:searchpaths">
+		<item value="java"/>
+		<item value="*"/>
+		<item value="osgi.*"/>
+		<item value="datatype"/>
+	</list>
+	<list key="/nutch-1xx/models/models.umlnutch-1xx:creationpaths">
+		<item value="java.* ; ; java"/>
+		<item value="org.eclipse.papyrus.* ; ; *"/>
+		<item value="org.eclipse.* ; org.eclipse.papyrus.* ; *"/>
+		<item value=" org.osgi.* ; ; osgi.*"/>
+		<item value=" datatype.* ; ; datatype"/>
+	</list>
+	<list key="/nutch-1xx/models/models.uml:creationpaths">
+		<item value="java.* ; ; java"/>
+		<item value="org.eclipse.papyrus.* ; ; *"/>
+		<item value="org.eclipse.* ; org.eclipse.papyrus.* ; *"/>
+		<item value=" org.osgi.* ; ; osgi.*"/>
+		<item value=" datatype.* ; ; datatype"/>
+	</list>
+	<list key="/nutch-1xx/models/models.umlJavaAtomic:creationpaths">
+		<item value="java.* ; ; java"/>
+		<item value="org.eclipse.papyrus.* ; ; *"/>
+		<item value="org.eclipse.* ; org.eclipse.papyrus.* ; *"/>
+		<item value=" org.osgi.* ; ; osgi.*"/>
+		<item value=" datatype.* ; ; datatype"/>
+	</list>
+	<list key="/nutch-1xx/models/models.umlnutch-1xx:searchpaths">
+		<item value="java"/>
+		<item value="*"/>
+		<item value="osgi.*"/>
+		<item value="datatype"/>
+	</list>
+	<list key="/nutch-1xx/models/models.uml:searchpaths">
+		<item value="java"/>
+		<item value="*"/>
+		<item value="osgi.*"/>
+		<item value="datatype"/>
+	</list>
+</section>

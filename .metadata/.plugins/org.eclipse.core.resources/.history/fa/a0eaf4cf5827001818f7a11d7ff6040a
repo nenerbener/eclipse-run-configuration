@@ -1,0 +1,105 @@
+package com.mceachern;
+
+import java.util.concurrent.atomic.*;
+
+/**
+ * testing variable accessibility for threaded programs- 
+ * 1 - Thread class variables are visible by all threads (i.e., count)
+ * 2 - Variables passed as method parameters and changed are changed in calling method
+ */
+public class JavaAtomic {
+
+ // AtomicInteger testCount = new AtomicInteger(0);
+ // AtomicInteger testCount;
+ // Integer testCount;
+	IntObj testCount;
+
+	public JavaAtomic() {
+//		testCount = new AtomicInteger(5);
+//		testCount = new Integer(5);	
+		testCount = new IntObj(5);
+		ProcessingThread pt = new ProcessingThread(testCount);
+		Thread t1 = new Thread(pt, "t1");
+		t1.setDaemon(true);
+		t1.start();
+		Thread t2 = new Thread(pt, "t2");
+		t2.setDaemon(true);
+		t2.start();
+		try {
+			t1.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		try {
+			t2.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("Processing count=" + pt.getCount());
+//		System.out.println("AtomicInteger:testCount=" + testCount.get());
+//		System.out.println("Integer:testCount=" + testCount.intValue());
+		System.out.println("IntObj:testCount=" + testCount.getInt());
+	}
+
+	public class ProcessingThread implements Runnable {
+		AtomicInteger count;
+//		AtomicInteger testCount2;
+//		Integer testCount2;
+		IntObj testCount2;
+
+//		public ProcessingThread(AtomicInteger testCount) {
+//		public ProcessingThread(Integer testCount) {
+		public ProcessingThread(IntObj testCount) {
+			count = new AtomicInteger(0);
+			this.testCount2 = testCount;
+		}
+
+		@Override
+		public void run() {
+			System.out.println(Thread.currentThread().getName() + ": " + "count total before for loop: " + count.get());
+			for (int i = 1; i < 5; i++) {
+				System.out.println(Thread.currentThread().getName() + ": " + "counter i: " + i);
+				processSomething(i);
+				count.incrementAndGet();
+				System.out.println(Thread.currentThread().getName() + ": " + "count total: " + count.get());
+//				System.out.println("AtomicInteger:testCount2: " + testCount2.getAndIncrement());
+//				testCount2 = new Integer(testCount2.intValue()+1);
+//				System.out.println("Integer:testCount2: " + testCount2.intValue());
+				testCount2.increment();
+				System.out.println("IntObj:testCount2: " + testCount2.getInt());
+			}
+		}
+
+		public int getCount() {
+			return count.get();
+		}
+
+		private void processSomething(int i) {
+// processing some job
+			try {
+				Thread.sleep(i * 1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public static void main(String[] args) throws Exception {
+		JavaAtomic ja = new JavaAtomic();
+		System.exit(0);
+	}
+
+//An Integer Object to test visibility of i
+	public final class IntObj {
+		int i;
+		IntObj(int i) {
+			this.i = i;
+		}
+		int getInt() {
+			return i;
+		}
+		void increment() {
+			i++;
+		}
+	}
+}

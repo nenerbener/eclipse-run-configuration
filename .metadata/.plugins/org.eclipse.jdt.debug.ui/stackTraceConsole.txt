@@ -1,0 +1,2 @@
+OutputStream output = new FileOutputStream("c:\\data\\system.out.txt");
+PrintStream printOut = new PrintStream(output);
